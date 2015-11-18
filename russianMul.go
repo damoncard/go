@@ -1,4 +1,4 @@
-package main
+package rusMul
 
 import "fmt"
 
@@ -13,14 +13,4 @@ func mul(first, second int) int {
 		second *= 2
 	}
 	return second + result
-}
-
-func main() {
-	var first, second int
-	fmt.Print("Input your numbers: ")
-	fmt.Scan(&first)
-	fmt.Scan(&second)
-	fmt.Printf("Your numbers are: %d, %d\n", first, second)
-	result := mul(first, second)
-	fmt.Printf("Result is %d\n", result)
 }

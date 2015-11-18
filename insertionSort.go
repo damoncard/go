@@ -1,4 +1,4 @@
-package main
+package sorting
 
 import "fmt"
 
@@ -19,20 +19,4 @@ func insertionSort(arr []int) []int {
 		arr[j+1] = v
 	}
 	return arr
-}
-
-func main() {
-	var n int
-	fmt.Print("Insert range of array: ")
-	fmt.Scan(&n)
-	var arr = make([]int, n)
-	fmt.Print("Insert array : ")
-	for i := 0 ; i < n ; i++ {
-		fmt.Scan(&arr[i])
-	}
-	fmt.Print("Unsorted array : ")
-	printArray(arr)
-	fmt.Print("Sorted array : ")
-	arr = insertionSort(arr)
-	printArray(arr)
 }
