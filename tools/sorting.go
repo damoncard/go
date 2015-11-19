@@ -32,18 +32,16 @@ func CountingSort(arr []int) []int {
 
 func DistributionCounting(arr []int, l int, u int) []int {
 	var freq = make([]int, u-l+1)
-	var des = make([]int, u-l+1)
 	var sorted_arr = make([]int, len(arr))
 	for _, value := range arr {
 		freq[value-l]++
 	}
-	des[0] = freq[0]
-	for i := 1 ; i < len(des) ; i++ {
-		des[i] = des[i-1] + freq[i]
+	for i := 1 ; i < len(freq) ; i++ {
+		freq[i] = freq[i-1] + freq[i]
 	}
 	for _, value := range arr {
-		sorted_arr[des[value-l]-1] = value
-		des[value-l]--
+		sorted_arr[freq[value-l]-1] = value
+		freq[value-l]--
 	}
 	return sorted_arr
 }
