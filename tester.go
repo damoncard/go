@@ -43,6 +43,31 @@ func test_rusMul() {
 	fmt.Println("Your answer is: ", tools.Mul(first, second))
 }
 
+func test_HornerPolynomial() {
+	var n, x int
+	fmt.Print("Insert number of coef: ")
+	fmt.Scan(&n)
+	var arr = make([]int, n)
+	fmt.Print("Insert coefs: ")
+	i := 0
+	for i < n {
+		fmt.Scan(&arr[i])
+		i++
+	} 
+	fmt.Print("Insert input: ")
+	fmt.Scan(&x)
+	fmt.Println("Your result is: ", tools.HornerPo(arr, x))
+}
+
+func test_LefttoRightBiPo() {
+	var base, exponent
+	fmt.Print("Insert base: ")
+	fmt.Scan(&base)
+	fmt.Print("Insert exponent: ")
+	fmt.Scan(&exponent)
+	fmt.Println("Answer is: ", tools.LeftoRightBiPo(base, exponent))
+}
+
 func main() {
 	var s string
 	fmt.Print("What do you want ot test: ")
@@ -51,5 +76,7 @@ func main() {
 		case "insertionsort": test_insertSort()
 		case "median": test_median()
 		case "russianmul": test_rusMul()
+		case "hornerpo" : test_HornerPolynomial()
+		case "lefttorightbipo": test_LefttoRightBiPo()
 	}
 }
