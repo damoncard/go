@@ -1,5 +1,6 @@
 package tools
 
+// This table is not like REAL ALGORITHM
 func ShiftTable(pattern string) map[string]int {
 	var table = make(map[string]int)
 	for i := len(pattern)-1 ; i >= 0 ; i -- {
@@ -10,6 +11,7 @@ func ShiftTable(pattern string) map[string]int {
 	return table
 }
 
+// This algorithm is not like REAL ALGORITHM
 func HorspoolMatching(table map[string]int, pattern string , text string) int {
 	for i := len(pattern) ; i < len(text) ; {
 		k := 0
