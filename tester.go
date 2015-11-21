@@ -23,14 +23,30 @@ func test_median(arr []int) {
 	fmt.Println("Median is: ", tools.Median(arr, 0, len(arr)-1))
 }
 
-func test_rusMul() {
+func test_decimalMul() {
 	var first, second int
-	fmt.Print("Insert first Integer: ")
-	fmt.Scan(&first)
-	fmt.Print("Insert second Integer: ")
-	fmt.Scan(&second)
+	fmt.Print("Insert Integers: ")
+	fmt.Scan(&first, &second)
 	fmt.Println("Your numbers are: ", first, second)
-	fmt.Println("Your answer is: ", tools.Mul(first, second))
+	fmt.Println("Your answer is: ", tools.DecimalMul(first, second))
+}
+
+func test_binaryMul() {
+	var first, second string
+	fmt.Print("Insert Binaries: ")
+	fmt.Scan(&first, &second)
+	fmt.Println("Your numbers are: ", first, second)
+	fmt.Println("Your answer is: ", tools.BinaryMul(first, second))
+}
+
+func test_transitiveClosure(matrix [][]int) {
+	fmt.Println("Matrix before perform: ", matrix)
+	fmt.Println("Matrix after perform: ", tools.TransitiveClosure(matrix))
+}
+
+func test_distanceMatrix(matrix [][]int) {
+	fmt.Println("Matrix before perform: ", matrix)
+	fmt.Println("Matrix after perform: ", tools.DistanceMatrix(matrix))
 }
 
 func test_HornerPolynomial() {
@@ -63,16 +79,40 @@ func inputArray() []int {
 	return arr
 }
 
+func inputMatrix() [][]int {
+	var n int
+	fmt.Print("How many vertices: ")
+	fmt.Scan(&n)
+	var mat = make ([][]int, n)
+	for index := range mat {
+		mat[index] = make([]int, n)
+	}
+	i, j := 0, 0
+	for i < n {
+		fmt.Print("Insert elements of ", i+1, " row: ")
+		for j < n {
+			fmt.Scan(&mat[i][j])
+			j++
+		}
+		i++
+		j = 0
+	}
+	return mat
+}
+
 func main() {
 	var s string
-	fmt.Print("What do you want ot test: ")
+	fmt.Print("What do you want to test: ")
 	fmt.Scan(&s)
 	switch s {
 		case "insertionsort": test_insertSort(inputArray())
 		case "countingsort": test_countingSort(inputArray())
 		case "distributioncounting": test_distributeCounting(inputArray())
 		case "median": test_median(inputArray())
-		case "russianmul": test_rusMul()
+		case "decimalmul": test_decimalMul()
+		case "binarymul": test_binaryMul()
 		case "hornerpo" : test_HornerPolynomial()
+		case "transitiveclosure": test_transitiveClosure(inputMatrix())
+		case "distancematrix": test_distanceMatrix(inputMatrix())
 	}
 }
