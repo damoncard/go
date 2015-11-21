@@ -19,8 +19,11 @@ func test_distributeCounting(arr []int) {
 }
 
 func test_median(arr []int) {
-	fmt.Println("Before sort: ", arr)
 	fmt.Println("Median is: ", tools.Median(arr, 0, len(arr)-1))
+}
+
+func test_mode(arr []int) {
+	fmt.Println("Mode is: ", tools.Mode(tools.InsertionSort(arr)))
 }
 
 func test_decimalMul() {
@@ -109,6 +112,7 @@ func main() {
 		case "countingsort": test_countingSort(inputArray())
 		case "distributioncounting": test_distributeCounting(inputArray())
 		case "median": test_median(inputArray())
+		case "mode": test_mode(inputArray())
 		case "decimalmul": test_decimalMul()
 		case "binarymul": test_binaryMul()
 		case "hornerpo" : test_HornerPolynomial()

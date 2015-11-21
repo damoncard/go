@@ -25,6 +25,22 @@ func Median(arr []int, l int, r int) int {
 	}
 }
 
+func Mode(arr []int) int {
+	cnt, cresult, cindex := 1, 1, 0
+	for i := 1 ; i < len(arr) ; i++ {
+		if arr[i] != arr[i-1] {
+			if cresult < cnt {
+				cresult = cnt
+				cindex = i-1
+				cnt = 1
+			}
+		} else {
+			cnt++
+		}
+	}
+	return arr[cindex]
+}
+
 func Min(arr []int) int {
 	var min int = arr[0]
 	for i := 1 ; i < len(arr) ; i++ {
