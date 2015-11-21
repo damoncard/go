@@ -68,6 +68,20 @@ func test_HornerPolynomial() {
 	fmt.Println("Your result is: ", tools.HornerPo(arr, x))
 }
 
+func test_Horspool() {
+	var p, t string
+	fmt.Print("Insert text: ")
+	fmt.Scan(&t)
+	fmt.Print("Insert pattern: ")
+	fmt.Scan(&p)
+	var result int = tools.HorspoolMatching(tools.ShiftTable(p), p, t)
+	if result == -1 {
+		fmt.Println("Your pattern's not in the text")
+	} else {
+		fmt.Println("Your patter starts with ", result)
+	}
+}
+
 func inputArray() []int {
 	var n int
 	fmt.Print("Insert length of array: ")
@@ -116,6 +130,7 @@ func main() {
 		case "decimalmul": test_decimalMul()
 		case "binarymul": test_binaryMul()
 		case "hornerpo" : test_HornerPolynomial()
+		case "horspool": test_Horspool()
 		case "transitiveclosure": test_transitiveClosure(inputMatrix())
 		case "distancematrix": test_distanceMatrix(inputMatrix())
 	}
