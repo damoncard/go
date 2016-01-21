@@ -1,0 +1,42 @@
+body {
+	background: #000000;
+}
+
+h1 {
+	text-align: center;
+	color: #638EFF;
+}
+
+.header {
+	background: #5C587F;
+	overflow: auto;
+	float: top;
+	text-align: center;
+}
+
+.choices {
+	background: #FF852E;
+	overflow: auto;
+	left: 0;
+	right: 0;
+}
+
+.choice {
+	background: #50FF5D;
+	float: left;
+	position: relative;
+	border-radius: 15px;
+	padding: 87px 0;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	margin-left: 59px;
+	width: 17%;
+	text-align: center;
+}
+
+.foot {
+	overflow: auto;
+	background: #5C587F;
+	float: bottom;
+	text-align: center;
+}
