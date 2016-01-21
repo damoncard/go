@@ -1,9 +1,13 @@
-package main 
+package main
 
 /*	fmt = I/O (Abbre from Format)
 	./tools = Another package which contains all of file(class) in that package (folder) */
-import ("fmt"
-		"./tools");
+import (
+	"./tools"
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // Test Insertion Sort in sorting file (Decrease and Conquer)
 func test_insertSort(arr []int) {
@@ -75,7 +79,7 @@ func test_HornerPolynomial() {
 	for i < n {
 		fmt.Scan(&arr[i])
 		i++
-	} 
+	}
 	fmt.Print("Insert input: ")
 	// Input x which replace x in the polynomial function
 	fmt.Scan(&x)
@@ -100,6 +104,19 @@ func test_Horspool() {
 	}
 }
 
+func test_tree() {
+	var n int
+	fmt.Print("How many Nodes do you want: ")
+	fmt.Scan(&n)
+	rand.Seed(time.Now().UnixNano() / int64(time.Millisecond))
+	for v := n; v != 0; v-- {
+		var e int = rand.Intn(300)
+		tools.NewNode(e)
+		fmt.Println(e, "Added")
+	}
+	tools.PrintNode(n)
+}
+
 // Necessary function
 func inputArray() []int {
 	var n int
@@ -120,7 +137,7 @@ func inputMatrix() [][]int {
 	var n int
 	fmt.Print("How many vertices: ")
 	fmt.Scan(&n)
-	var mat = make ([][]int, n)
+	var mat = make([][]int, n)
 	for index := range mat {
 		mat[index] = make([]int, n)
 	}
@@ -143,16 +160,29 @@ func main() {
 	fmt.Scan(&s)
 	// Switch automatically provided break in each case
 	switch s {
-		case "insertionsort": test_insertSort(inputArray())
-		case "countingsort": test_countingSort(inputArray())
-		case "distributioncounting": test_distributeCounting(inputArray())
-		case "median": test_median(inputArray())
-		case "mode": test_mode(inputArray())
-		case "decimalmul": test_decimalMul()
-		case "binarymul": test_binaryMul()
-		case "hornerpo" : test_HornerPolynomial()
-		case "horspool": test_Horspool()
-		case "transitiveclosure": test_transitiveClosure(inputMatrix())
-		case "distancematrix": test_distanceMatrix(inputMatrix())
+	case "insertionsort":
+		test_insertSort(inputArray())
+	case "countingsort":
+		test_countingSort(inputArray())
+	case "distributioncounting":
+		test_distributeCounting(inputArray())
+	case "median":
+		test_median(inputArray())
+	case "mode":
+		test_mode(inputArray())
+	case "decimalmul":
+		test_decimalMul()
+	case "binarymul":
+		test_binaryMul()
+	case "hornerpo":
+		test_HornerPolynomial()
+	case "horspool":
+		test_Horspool()
+	case "transitiveclosure":
+		test_transitiveClosure(inputMatrix())
+	case "distancematrix":
+		test_distanceMatrix(inputMatrix())
+	case "tree":
+		test_tree()
 	}
 }
